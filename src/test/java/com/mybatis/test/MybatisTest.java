@@ -43,6 +43,6 @@ public class MybatisTest {
 //        System.out.println("添加result:" + result);
 //        System.out.println("修改update:" + update);
         System.out.println("全部:" + ur);
-
+        System.out.println("全部:" + ur);
     }
 }
