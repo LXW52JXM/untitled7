@@ -1,6 +1,7 @@
 package com.mybatis.mapper;
 
 import com.mybatis.model.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -54,4 +55,12 @@ public interface UserMapper {
      * @return
      */
     List<User> checkLoginByMap(Map<String,Object> map);
+
+    /**
+     * 使用@Param标识参数
+     * @param username
+     * @param password
+     * @return
+     */
+    User CheckLoginByParam(@Param("username") String username, @Param("password") String password);
 }

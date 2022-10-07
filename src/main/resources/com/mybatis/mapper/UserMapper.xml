@@ -25,4 +25,7 @@
     <insert id="insertUser">
         insert into user values(null,#{username},#{password},#{age},#{sex},#{email})
     </insert>
+    <select id="CheckLoginByParam" resultType="User">
+        select * from user where username = #{username} and password = #{password}
+    </select>
 </mapper>

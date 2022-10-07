@@ -51,8 +51,9 @@ public class MybatisTest {
         //map.put("email","1254");
         //map.put("password","123");
         //List<User> login=userMapper.checkLoginByMap(map);
-        User user=new User(0,"Tom","123456",12,'男',"123@321.com");
-        int ins=userMapper.insertUser(user);
+        //User user=new User(0,"Tom","123456",12,'男',"123@321.com");
+        //int ins=userMapper.insertUser(user);
+        User ur=userMapper.CheckLoginByParam("Tom","123456");
 
         //手动提交事务
         //sqlSession.commit();
@@ -62,6 +63,7 @@ public class MybatisTest {
         //System.out.println("全部:" + ur);
         //System.out.println("单个:" + us);
         //System.out.println("两个："+login);
-        System.out.println("实体添加："+ins);
+        //System.out.println("实体添加："+ins);
+        System.out.println("使用@Param标识参数:"+ur);
     }
 }
