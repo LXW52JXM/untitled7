@@ -3,6 +3,7 @@ package com.mybatis.mapper;
 import com.mybatis.model.User;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 用户接口
@@ -15,6 +16,12 @@ public interface UserMapper {
     int insertUser();
 
     /**
+     * 通过实体类型传递参数添加用户
+     * @param user
+     * @return
+     */
+    int insertUser(User user);
+    /**
      * 修改用户
      * @return
      */
@@ -25,4 +32,26 @@ public interface UserMapper {
      * @return
      */
     List<User> selectAll();
+
+    /**
+     * 查询指定姓名的用户
+     * @param name
+     * @return
+     */
+    List<User> selectUser(String name);
+
+    /**
+     * 登录验证
+     * @param email
+     * @param password
+     * @return
+     */
+    List<User> checkLogin(String email,String password);
+
+    /**
+     * 根据map集合传值
+     * @param map
+     * @return
+     */
+    List<User> checkLoginByMap(Map<String,Object> map);
 }

@@ -71,7 +71,7 @@ public class User {
                 '}';
     }
 
-    public User(int id, String username, String password, int age, char sex, String email) {
+    public User(Integer id, String username, String password, int age, char sex, String email) {
         this.id = id;
         this.username = username;
         this.password = password;

@@ -4,13 +4,25 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mybatis.mapper.UserMapper">
     <!--int insertUser();用户接口的映射文件-->
-    <insert id="insertUser">
-        insert  into user values(null,'张三','123',23,'女','1254')
-    </insert>
+<!--    <insert id="insertUser">-->
+<!--        insert  into user values(null,'张三','123',23,'女','1254')-->
+<!--    </insert>-->
     <update id="updateUser">
         update user set username='李四' where id=2
     </update>
     <select id="selectAll" resultType="User">
         select * from user
     </select>
+    <select id="selectUser" resultType="User">
+        select * from user where username='${name}'
+    </select>
+    <select id="checkLogin" resultType="User">
+        select * from user where email=#{arg0} and password=#{arg1}
+    </select>
+    <select id="checkLoginByMap" resultType="User">
+        select * from user where email=#{email} and password=#{password}
+    </select>
+    <insert id="insertUser">
+        insert into user values(null,#{username},#{password},#{age},#{sex},#{email})
+    </insert>
 </mapper>
