@@ -1,6 +1,7 @@
 package com.mybatis.mapper;
 
 import com.mybatis.model.User;
+import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -63,4 +64,34 @@ public interface UserMapper {
      * @return
      */
     User CheckLoginByParam(@Param("username") String username, @Param("password") String password);
+
+    /**
+     * 根据用户名称模糊查询
+     * @param username
+     * @return
+     */
+    List<User> getUserByLike(@Param("username") String username);
+
+    /**
+     * 查询数据条数
+     * @return
+     */
+    int selectCount();
+
+    /**
+     * 查询所有用户信息为map集合
+     * @return
+     * 将表中的数据以map集合的方式查询，一条数据对应一个map；若有多条数据，就会产生多个map集合，
+     * 并且最终要以一个map的方式返回数据，此时需要通过@MapKey注解设置map集合的键，值是每条数据所对应的map集合
+     * (不加@MapKey注解，要用List<Map<String, Object>> getAllUserToMap();)
+     */
+    @MapKey("id")
+    Map<String,Object> getAllUserToMap();
+
+    /**
+     * 根据id批量删除
+     * @param ids
+     * @return
+     */
+    int deleteMore(@Param("ids") String ids);
 }

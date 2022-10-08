@@ -53,7 +53,11 @@ public class MybatisTest {
         //List<User> login=userMapper.checkLoginByMap(map);
         //User user=new User(0,"Tom","123456",12,'男',"123@321.com");
         //int ins=userMapper.insertUser(user);
-        User ur=userMapper.CheckLoginByParam("Tom","123456");
+        //User ur=userMapper.CheckLoginByParam("Tom","123456");使用@Param标识参数
+        //List<User> userList=userMapper.getUserByLike("三");模糊查询
+        //int count= userMapper.selectCount();数据条数
+        //Map<String,Object> map=userMapper.getAllUserToMap();@MapKey注解map集合
+        //int deleteCount= userMapper.deleteMore("1,6,5");
 
         //手动提交事务
         //sqlSession.commit();
@@ -64,6 +68,10 @@ public class MybatisTest {
         //System.out.println("单个:" + us);
         //System.out.println("两个："+login);
         //System.out.println("实体添加："+ins);
-        System.out.println("使用@Param标识参数:"+ur);
+        //System.out.println("使用@Param标识参数:"+ur);
+        //System.out.println("模糊查询："+userList);
+        //System.out.println("数据条数："+count);
+        //System.out.println("map集合："+map);
+        //System.out.println("删除条数："+deleteCount);
     }
 }

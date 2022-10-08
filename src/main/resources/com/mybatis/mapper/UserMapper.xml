@@ -28,4 +28,16 @@
     <select id="CheckLoginByParam" resultType="User">
         select * from user where username = #{username} and password = #{password}
     </select>
+    <select id="getUserByLike" resultType="User">
+        select * from user where username like "%"#{username}"%"
+    </select>
+    <select id="selectCount" resultType="int">
+        select count(id) from user
+    </select>
+    <select id="getAllUserToMap" resultType="map">
+        select * from user
+    </select>
+    <delete id="deleteMore">
+        delete from user where id in (${ids})
+    </delete>
 </mapper>
