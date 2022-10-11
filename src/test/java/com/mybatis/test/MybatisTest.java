@@ -1,6 +1,8 @@
 package com.mybatis.test;
 
+import com.mybatis.mapper.EmpMapper;
 import com.mybatis.mapper.UserMapper;
+import com.mybatis.model.Emp;
 import com.mybatis.model.User;
 import com.mybatis.utils.SqlSessionUtils;
 import org.apache.ibatis.io.Resources;
@@ -41,6 +43,7 @@ public class MybatisTest {
 
         //通过代理模式创建UserMapper接口的代理实现类对象
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        EmpMapper empMapper=sqlSession.getMapper(EmpMapper.class);
         //调用UserMapper接口中的方法，就可以根据UserMapper的全类名匹配元素文件，通过调用的方法名匹配映射文件中的SQL标签，并执行标签中的SQL语句
         //int result = userMapper.insertUser();
         //int update = userMapper.updateUser();
@@ -58,6 +61,7 @@ public class MybatisTest {
         //int count= userMapper.selectCount();数据条数
         //Map<String,Object> map=userMapper.getAllUserToMap();@MapKey注解map集合
         //int deleteCount= userMapper.deleteMore("1,6,5");
+        Emp em=empMapper.getEmpAndDept(3);
 
         //手动提交事务
         //sqlSession.commit();
@@ -73,5 +77,6 @@ public class MybatisTest {
         //System.out.println("数据条数："+count);
         //System.out.println("map集合："+map);
         //System.out.println("删除条数："+deleteCount);
+        System.out.println("自定义映射："+em);
     }
 }
