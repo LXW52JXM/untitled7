@@ -61,7 +61,9 @@ public class MybatisTest {
         //int count= userMapper.selectCount();数据条数
         //Map<String,Object> map=userMapper.getAllUserToMap();@MapKey注解map集合
         //int deleteCount= userMapper.deleteMore("1,6,5");
-        Emp em=empMapper.getEmpAndDept(3);
+        //Emp em=empMapper.getEmpAndDept(3);自定义映射
+        Emp emp=new Emp(0,"张三",45,"",null,null);
+        List<Emp> empList=empMapper.getEmpByCondition(emp);
 
         //手动提交事务
         //sqlSession.commit();
@@ -77,6 +79,8 @@ public class MybatisTest {
         //System.out.println("数据条数："+count);
         //System.out.println("map集合："+map);
         //System.out.println("删除条数："+deleteCount);
-        System.out.println("自定义映射："+em);
+        //System.out.println("自定义映射："+em);
+        System.out.println("自定义sql结果："+empList);
     }
+//    public void  testDelete
 }

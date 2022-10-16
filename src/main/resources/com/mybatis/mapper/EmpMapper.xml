@@ -30,4 +30,20 @@
     <select id="getEmpAndDept" resultMap="empAndDeptResultMapTwo">
         select * from emp left join dept on emp.eid = dept.did where emp.eid = #{eid}
     </select>
+
+    <select id="getEmpByCondition" resultType="Emp">
+        select * from emp where 1=1
+        <if test="empName!=null and empName!=''">
+            and emp_name=#{empName}
+        </if>
+        <if test="age != null and age !=''">
+            and age = #{age}
+        </if>
+        <if test="sex != null and sex !=''">
+            and sex = #{sex}
+        </if>
+        <if test="email!=null and email!=''">
+            and email=#{email}
+        </if>
+    </select>
 </mapper>

@@ -6,6 +6,10 @@
     <!--引入properties文件，此时就可以${属性名}的方式访问属性值-->
     <properties resource="jdbc.properties"></properties>
 
+    <settings>
+        <!--下划线_自动转换为驼峰-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
     <typeAliases>
         <!--
         typeAlias：设置某个具体的类型的别名
