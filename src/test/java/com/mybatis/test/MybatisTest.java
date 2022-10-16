@@ -23,7 +23,7 @@ import java.util.*;
 public class MybatisTest {
 
     @Test
-    public void testMyBatis() throws IOException, ClassNotFoundException {
+    public void testMyBatis() throws IOException {
         /*
         // Class.forName("com.mysql.jdbc.Driver");
         //读取MyBatis的核心配置文件
